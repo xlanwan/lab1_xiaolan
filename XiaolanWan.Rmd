@@ -7,41 +7,48 @@ root: ../../
 ---
 
 ## Building a book:
-(1) The last word in 
+Deliverable (1): the last word in Chapter 15 is class.
 
-Asking good questions is a valuable skill to have - asking questions in an online setting is both easier and harder than asking questions in person: we can prepare to ask a question but we are also expected to prepare.
-The links posted here give some advice on how to ask good questions:
+Deliverable (2): as I tried to build the book, I encoutered the following error:
 
-- stackoverflow's [Asking a good question](http://stackoverflow.com/help/how-to-ask)
+Quitting from lines 4-5 (Introduction.Rmd) 
+Error in dev.control(displaylist = if (record) "enable" else "inhibit") : 
+  dev.control() called without an open graphics device
+Calls: local ... call_block -> block_exec -> eng_r -> chunk_device -> dev.control
+In addition: Warning messages:
+1: In grSoftVersion() :
+  unable to load shared object '/Library/Frameworks/R.framework/Resources/modules//R_X11.so':
+  dlopen(/Library/Frameworks/R.framework/Resources/modules//R_X11.so, 6): Library not loaded: /opt/X11/lib/libSM.6.dylib
+  Referenced from: /Library/Frameworks/R.framework/Versions/4.0/Resources/modules/R_X11.so
+  Reason: image not found
+2: In cairoVersion() :
+  unable to load shared object '/Library/Frameworks/R.framework/Resources/library/grDevices/libs//cairo.so':
+  dlopen(/Library/Frameworks/R.framework/Resources/library/grDevices/libs//cairo.so, 6): Library not loaded: /opt/X11/lib/libXrender.1.dylib
+  Referenced from: /Library/Frameworks/R.framework/Versions/4.0/Resources/library/grDevices/libs/cairo.so
+  Reason: image not found
+3: In (function (filename = if (onefile) "Rplots.pdf" else "Rplot%03d.pdf",  :
+  failed to load cairo DLL
+Execution halted
+Error in Rscript_render(f, render_args, render_meta, add1, add2) : 
+  Failed to compile Introduction.Rmd
+Calls: local ... <Anonymous> -> render_new_session -> Rscript_render
+Execution halted
+Error: bookdown::render_book() failed to render the output format 'bookdown::pdf_book'.
+Execution halted
 
-- R's [Posting guidelines](https://www.r-project.org/posting-guide.html)
+Exited with status 1.
 
-- [minimal complete verifiable example](https://stackoverflow.com/help/mcve), [minimal reproducible example](https://www.tidyverse.org/help/)
+I read the warning message carefully, which told me that "Library not loaded: /opt/X11/lib/libSM.6.dylib", then I googled how to library X11 and I was told to install a software called "XQuartz", which can allow me to use run X11. After I installed this software, this issue was solved. 
 
-Follow these links and read through the advice given, then
+## Weather stations:
 
-1. **Pick at least one question from stackoverflow or the R help and answer it.**
-
-Write a blog post answering the following questions: 
-
-2. **Document which question you answered (link to your answer).**
-
-3. **Relate your experience of answering the question to your reading. **
+ 
+ 
  
 
-<!--Go to [https://github.com/Stat585-at-ISU/blog](https://github.com/Stat585-at-ISU/blog) for instructions about how to prepare and submit your blog post.-->
-Instructions to follow.
+ 
+ 
+ 
+ 
+ 
 
-
-{% assign num_posts = site.blog | size %}
-{% if num_posts > 0 %}
-## Class posts:
-
-<ul>
-{% for post in site.blog %}
-  {% if page.topic == post.topic %}
-  <li><a href="{{ post.url }}">{{ post.title }} by {{ post.author }}</a></li>
-  {% endif %}
-{% endfor %}
-</ul>
-{% endif %}
