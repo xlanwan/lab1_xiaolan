@@ -6,7 +6,8 @@ due-date: 2022-01-27
 root: ../../
 ---
 
-## Prompt:
+## Building a book:
+(1) The last word in 
 
 Asking good questions is a valuable skill to have - asking questions in an online setting is both easier and harder than asking questions in person: we can prepare to ask a question but we are also expected to prepare.
 The links posted here give some advice on how to ask good questions:
