@@ -39,7 +39,7 @@ Exited with status 1.
 
 I read the warning message carefully, which told me that "Library not loaded: /opt/X11/lib/libSM.6.dylib", then I googled how to library X11 and I was told to install a software called "XQuartz", which can allow me to use run X11. After I installed this software, this issue was solved. 
 
-## US weather stations
+## US weather station
 ```{r}
 library(tidyverse)
 weather <- readr::read_fwf("~/Desktop/2021 Fall/585/lab1_xiaolan/ushcn-v2.5-stations.txt",
